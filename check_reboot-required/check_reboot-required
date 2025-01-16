@@ -70,7 +70,7 @@ REBOOT_REQUIRED_PKGS_PATH="/var/run/reboot-required.pkgs"
 # Function to explain how to use the program
 function_usage () {
 cat - <<EOF
-Usage: ${appname} [--help]
+Usage: ${appname} [--help | -h]
 Usage: ${appname} -d status [-w warn] [-c crit]
 
 This check command checks if a reboot are required after an upgrade. It will
@@ -86,7 +86,7 @@ for each update.
 Default without any options will be Warning for 1 or more packages
 that requires reboot. Critical event will not be raised.
 
- --help
+ --help or -h
     Show this help
  -V, --version
     Show version
@@ -183,7 +183,7 @@ while [ $# -gt 0 ]
     do
         OPT="$1"
             case "${OPT}" in
-                --help)
+                --help|-h)
                     function_usage
                     exit $OK_EXIT_CODE
                 ;;
